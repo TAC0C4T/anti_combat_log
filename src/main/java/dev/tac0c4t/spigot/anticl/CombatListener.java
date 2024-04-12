@@ -7,12 +7,19 @@ import org.bukkit.entity.Entity;
 import org.bukkit.Bukkit;
 
 public class CombatListener implements Listener{
+    private final App plugin;
+
+    public CombatListener(App plugin) {
+        this.plugin = plugin;
+    }
+
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event) {
         Entity attacker = event.getDamager();
         Entity defender = event.getEntity();
 
-        Bukkit.broadcastMessage(attacker.getName() + " " + defender.getName());
+        plugin.startCombat(attacker, defender);
 
     }
+
 }
