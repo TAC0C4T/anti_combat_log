@@ -50,12 +50,9 @@ public class CombatListener implements Listener{
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        Bukkit.broadcastMessage("TEST");
-        System.out.println(plugin.isSentenced(player));
         if (plugin.isSentenced(player)) {
-            //Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "kill" + " " + player.getName());
-            Bukkit.broadcastMessage("has rejoined after combat logging");
-            System.out.println("here");
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "kill" + " " + player.getName());
+            Bukkit.broadcastMessage(player.getName() + "has rejoined after combat logging");
             plugin.pardon(player);
         }
     }

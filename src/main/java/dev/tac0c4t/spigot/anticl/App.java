@@ -20,7 +20,7 @@ import java.util.HashMap;
 public class App extends JavaPlugin
 {
     private final Map<Entity, Entity> battles = new HashMap<>();
-    private final Map<Player, Boolean> sentenced = new HashMap<>();
+    private final Map<String, Boolean> sentenced = new HashMap<>();
     @Override
     public void onEnable() {
         Bukkit.getServer().getPluginManager().registerEvents(new CombatListener(this), this);   
@@ -66,14 +66,14 @@ public class App extends JavaPlugin
     }
 
     public void sentence(Player player) {
-        sentenced.put(player, true);
+        sentenced.put(player.getName(), true);
     }
 
     public boolean isSentenced(Player player) {
-        return sentenced.getOrDefault(player, false);
+        return sentenced.getOrDefault(player.getName(), false);
     }
 
     public void pardon(Player player) {
-        sentenced.remove(player);
+        sentenced.remove(player.getName());
     }
 }
