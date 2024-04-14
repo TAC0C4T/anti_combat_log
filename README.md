@@ -7,3 +7,6 @@ Future features:
 -in game cli options
 -bossbar timers
 -more shame to combat loggers
+
+
+this md document is bad because i do not know how to do markdown it will be fixed at some point
